@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información sobre el trapecio</title>
+    <link rel="stylesheet" href="../stylo.css">
+</head>
+<body>
+    <header>
+        <h1>El Trapecio</h1>
+    </header>
+    <section class="imagen">
+    <img src="figura.png" width="300px" height="300px" text-align="center"><img/>
+</section>
+    <section class="definicion">
+        <h2>¿Qué es un Trapecio?</h2>
+        <p>Un trapecio es un cuadrilátero (figura de cuatro lados) que tiene solamente un par de lados opuestos paralelos. Estos lados paralelos se denominan bases (mayor y menor).</p>
+    </section>
+
+    <section class="caracteristicas">
+        <h2>Características del Trapecio</h2>
+        <ul>
+            <li>Tiene cuatro lados y cuatro vértices.</li>
+            <li>Un solo par de lados opuestos son paralelos (bases).</li>
+            <li>Puede clasificarse en: trapecio rectángulo, trapecio isósceles o trapecio escaleno.</li>
+            <li>La suma de los ángulos interiores es de <strong>360 grados</strong>.</li>
+            <li>En un trapecio isósceles, los ángulos de cada base son iguales.</li>
+        </ul>
+    </section>
+    <section class="ejemplos">
+        <p>Ejemplos</p>
+        <img src="trapecio.jpeg" width="500px" height="200px"><img/>
+    </section>
+    <section class="formulas">
+        <h2>Fórmulas Importantes</h2>
+        <ul>
+            <li><strong>Área (A):</strong> <code>A = ((B + b) × h) / 2</code></li>
+            <p><em>donde <strong>B</strong> es la base mayor, <strong>b</strong> la base menor, y <strong>h</strong> la altura (distancia perpendicular entre las bases).</em></p>
+
+            <li><strong>Perímetro (P):</strong> <code>P = B + b + L₁ + L₂</code></li>
+            <p><em>donde <strong>L₁</strong> y <strong>L₂</strong> son los lados no paralelos (los laterales).</em></p>
+        </ul>
+    </section>
+    <section>
+        <h2>Calculadora</h2>
+        <h3>Ingresa el lado del trapecio</h3>
+
+        <label>Base mayor:</label>
+        <input type="number" id="baseMayor" placeholder="Ingresa la medida " required>
+
+        <label>Base menor:</label>
+        <input type="number" id="baseMenor" placeholder="Ingresa la medida " required>
+
+        <label>Altura:</label>
+        <input type="number" id="altura" placeholder="Ingresa la medida " required>
+
+        <label>Lado 1:</label>
+        <input type="number" id="lado1" placeholder="Ingresa la medida " required>
+
+        <label>Lado 2:</label>
+        <input type="number" id="lado2" placeholder="Ingresa la medida " required>
+
+        <button onclick="calcularParametros()">Calcular</button>
+    </section>
+
+    <section class="result" id="resultados" style="display:none;">
+        <h2>Resultados</h2>
+        <p><strong>Área:</strong> <span id="area"></span></p>
+        <p><strong>Perimetro:</strong> <span id="perimetro"></span></p>
+    </section>
+
+    <script>
+        function calcularParametros() {
+            // Obtener lado
+            const baseMayor = parseFloat(document.getElementById('baseMayor').value);
+            const baseMenor = parseFloat(document.getElementById('baseMenor').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            const lado1 = parseFloat(document.getElementById('lado1').value);
+            const lado2 = parseFloat(document.getElementById('lado2').value);
+
+            // Calcular los parámetros
+            const area = ((baseMayor + baseMenor) * altura) / 2;
+            const perimetro = baseMayor + baseMenor + lado1 + lado2;
+            // Mostrar los resultados en la página
+            document.getElementById('area').textContent = (area.toFixed(2)+' cm²');
+            document.getElementById('perimetro').textContent = (perimetro.toFixed(2)+' cm');
+            // Mostrar la sección de resultados
+            document.getElementById('resultados').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

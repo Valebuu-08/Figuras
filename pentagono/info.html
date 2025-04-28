@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información sobre el pentagono</title>
+    <link rel="stylesheet" href="../stylo.css">
+</head>
+<body>
+    <header>
+        <h1>El Pentagono</h1>
+    </header>
+    <section class="imagen">
+    <img src="figura.png" width="300px" height="300px" text-align="center"><img/>
+</section>
+    <section class="definicion">
+        <h2>¿Qué es un Pentagono?</h2>
+        <p>Un pentágono es una figura geométrica plana que tiene cinco lados y cinco vértices. Cuando todos sus lados y ángulos son iguales, se llama pentágono regular. Los pentágonos son comunes tanto en la naturaleza como en la arquitectura.</p>
+    </section>
+
+    <section class="caracteristicas">
+        <h2>Características del Pentagono</h2>
+        <ul>
+            <li>Consta de cinco lados y cinco vértices.</li>
+            <li>La suma de los ángulos interiores es de <strong>540 grados</strong>.</li>
+            <li>En un pentágono regular, cada ángulo interior mide <strong>108 grados</strong>.</li>
+            <li>Puede ser regular (todos los lados y ángulos iguales) o irregular.</li>
+            <li>Se puede dividir en tres triángulos desde un solo vértice.</li>
+        </ul>
+       
+    </section>
+  
+    <section class="ejemplos">
+        <p>Ejemplos</p>
+        <img src="pentagono.jpeg" width="500px" height="200px"><img/>
+    </section>
+    <section class="formulas">
+        <h2>Fórmulas Importantes</h2>
+        <ul>
+            <li><strong>Perímetro (P):</strong> <code>P = 5 × L</code></li>
+            <p><em>donde <strong>L</strong> es la longitud del lado.</em></p>
+
+            <li><strong>Área (A):</strong> <code>A = (5 × L × a) / 2</code></li>
+            <p><em>donde <strong>L</strong> es el lado y <strong>a</strong> es el apotema.</em></p>
+
+            <li><strong>Apotema (a) (opcional si solo tienes el lado):</strong> 
+                <br><code>a = L / (2 × tan(π/5))</code> 
+            </li>
+            <p><em>Esto calcula el apotema usando trigonometría.</em></p>
+        </ul>
+    </section>
+    <section>
+        <h2>Calculadora</h2>
+        <h3>Ingresa el lado del pentagono</h3>
+        <label>Lado (L):</label>
+        <input type="number" id="lado" placeholder="Ingresa la medida del uno de sus lados" required>
+        <button onclick="calcularParametros()">Calcular</button>
+    </section>
+
+    <section class="result" id="resultados" style="display:none;">
+        <h2>Resultados</h2>
+        <p><strong>Área:</strong> <span id="area"></span></p>
+        <p><strong>Perimetro:</strong> <span id="perimetro"></span></p>
+    </section>
+
+    <script>
+        function calcularParametros() {
+            // Obtener lado
+            const lado = parseFloat(document.getElementById('lado').value);
+            if (isNaN(lado) || lado <= 0) {
+                alert("Por favor, ingresa un valor válido para el lado.");
+                return;
+            }
+            const apotema = lado / (2 * Math.tan(Math.PI / 5));
+            const perimetro = 5 * lado;
+            const area =  (perimetro * apotema) / 2;
+            // Mostrar los resultados en la página
+            document.getElementById('area').textContent = (area.toFixed(2)+' cm²');
+            document.getElementById('perimetro').textContent = (perimetro.toFixed(2)+' cm');
+            // Mostrar la sección de resultados
+            document.getElementById('resultados').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

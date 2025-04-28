@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información sobre el rectangulo</title>
+    <link rel="stylesheet" href="../stylo.css">
+</head>
+<body>
+    <header>
+        <h1>El Rectangulo</h1>
+    </header>
+    <section class="imagen">
+    <img src="figura.png" width="300px" height="300px" text-align="center"><img/>
+</section>
+    <section class="definicion">
+        <h2>¿Qué es un Rectangulo?</h2>
+        <p>Un rectángulo es una figura geométrica plana de cuatro lados (cuadrilátero) en la que todos los ángulos son rectos, es decir, de 90 grados. Sus lados opuestos son paralelos y de igual longitud.</p>
+    </section>
+
+    <section class="caracteristicas">
+        <h2>Características del Rectangulo</h2>
+        <ul>
+            <li>Cuatro lados y cuatro ángulos rectos (90° cada uno).</li>
+            <li>Los lados opuestos son iguales y paralelos.</li>
+            <li>La suma de todos los ángulos interiores es de <strong>360 grados</strong>.</li>
+            <li>Sus diagonales son iguales en longitud.</li>
+            <li>Las diagonales se cruzan en el centro y se dividen en segmentos iguales.</li>
+            <li>Es un caso particular de un paralelogramo.</li>
+        </ul>
+    
+    </section>
+    <section class="ejemplos">
+        <p>Ejemplos</p>
+        <img src="rectangulo.jpeg" width="500px" height="200px"><img/>
+    </section>
+    <section class="formulas">
+        <h2>Fórmulas Importantes</h2>
+        <ul>
+            <li><strong>Perímetro (P):</strong> <code>P = 2 × (b + h)</code></li>
+            <p><em>donde <strong>b</strong> es la base y <strong>h</strong> es la altura.</em></p>
+
+            <li><strong>Área (A):</strong> <code>A = b × h</code></li>
+            <p><em>donde <strong>b</strong> es la base y <strong>h</strong> es la altura.</em></p>
+
+            <li><strong>Diagonal (d):</strong> <code>d = √(b² + h²)</code></li>
+            <p><em>donde <strong>b</strong> es la base y <strong>h</strong> es la altura.</em></p>
+        </ul>
+    <section>
+        <h2>Calculadora</h2>
+        <h3>Ingresa el lado del rectangulo</h3>
+        <label>Base:</label>
+        <input type="number" id="base" placeholder="Ingresa la medida" required>
+        <label>Altura:</label>
+        <input type="number" id="altura" placeholder="Ingresa la medida" required>
+        <button onclick="calcularParametros()">Calcular</button>
+    </section>
+
+    <section class="result" id="resultados" style="display:none;">
+        <h2>Resultados</h2>
+        <p><strong>Área:</strong> <span id="area"></span></p>
+        <p><strong>Perimetro:</strong> <span id="perimetro"></span></p>
+    </section>
+
+    <script>
+        function calcularParametros() {
+            // Obtener lado
+            const base = parseFloat(document.getElementById('base').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            if (isNaN(base) || base <= 0) {
+                alert("Por favor, ingresa un valor válido");
+                return;
+            }
+            const area = base * altura;
+            // Calcular los parámetros
+            const perimetro = 2 * (base + altura);
+            // Mostrar los resultados en la página
+            document.getElementById('area').textContent = (area.toFixed(2)+' cm²');
+            document.getElementById('perimetro').textContent = (perimetro.toFixed(2)+' cm');
+            // Mostrar la sección de resultados
+            document.getElementById('resultados').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
