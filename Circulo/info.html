@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información sobre el Círculo</title>
     <link rel="stylesheet" href="stylo.css">
-</head>
+</head>|
 <body>
 
     <header>
@@ -63,6 +63,7 @@
         <h2>Resultados</h2>
         <p><strong>Circunferencia (C):</strong> <span id="circunferencia"></span></p>
         <p><strong>Área (A):</strong> <span id="area"></span></p>
+        <p><strong>perimetro (D):</strong> <span id="perimetro"></span></p>
         <p><strong>Diámetro (D):</strong> <span id="diametro"></span></p>
     </section>
 
@@ -70,17 +71,15 @@
         function calcularParametros() {
             // Obtener el valor del radio
             const radio = parseFloat(document.getElementById('radio').value);
-            
             if (isNaN(radio) || radio <= 0) {
                 alert("Por favor, ingresa un valor válido para el radio.");
                 return;
             }
-            
             // Calcular los parámetros del círculo
             const circunferencia = 2 * Math.PI * radio;
             const area = Math.PI * Math.pow(radio, 2);
             const diametro = 2 * radio;
-
+            const perimetro = 2 * Math.PI * radio;
             // Mostrar los resultados en la página
             document.getElementById('circunferencia').textContent = circunferencia.toFixed(2);
             document.getElementById('area').textContent = area.toFixed(2);
